@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-	<title>19楼客户端中转页</title>
+	<title>19楼客户端Native-JS联调测试</title>
 	<script type="text/javascript">
 	    function connectWebViewJavascriptBridge(callback) {
 	        if (window.webOpenJSBridge) {
@@ -23,6 +23,11 @@
 	<a href="javascript:;" class="b" onclick="b();">跳转到举报</a></br>
     <a href="javascript:;" class="c" onclick="c();">退出登录</a></br>
     <a href="javascript:;" class="d" onclick="d();">调起注册页面</a></br>
+    <a href="javascript:;" class="e" onclick="e();">含刷新web页面--四个参数</a></br>
+    <a href="javascript:;" class="f" onclick="f();">不含刷新web页面--四个参数</a></br>
+    <a href="javascript:;" class="g" onclick="g();">传统调用web页面--两个参数</a></br>
+    <a href="javascript:;" class="h" onclick="h();">传统调用web页面--三个参数</a></br>
+
 
 	<script type="text/javascript">
 	function a(){
@@ -62,6 +67,36 @@
         connectWebViewJavascriptBridge(function(bridge){
            bridge.gotoLocalPage(JSON.stringify(data));
         });
+    }
+    
+    function e(){
+        var data = {};
+        data.param= {"isHasRefresh":true};
+        
+        connectWebViewJavascriptBridge(function(bridge){
+                                       bridge.createWebPage("百度搜索","https://www.baidu.com","",JSON.stringify(data));
+                                       });
+    }
+    
+    function f(){
+        var data = {};
+        data.param= {"isHasRefresh":false};
+        
+        connectWebViewJavascriptBridge(function(bridge){
+                                       bridge.createWebPage("百度搜索","https://www.baidu.com","",JSON.stringify(data));
+                                       });
+    }
+    
+    function g(){
+        connectWebViewJavascriptBridge(function(bridge){
+                                       bridge.createWebPage("百度搜索","https://www.baidu.com");
+                                       });
+    }
+    
+    function h(){
+        connectWebViewJavascriptBridge(function(bridge){
+                                       bridge.createWebPage("百度搜索","https://www.baidu.com","homeFlg");
+                                       });
     }
     
 	</script>
