@@ -19,6 +19,10 @@
 	</script>
 </head>
 <body>
+    <a href="javascript:;" class="aa" onclick="aa();">本页跳页方式A/a></br>
+    <a href="javascript:;" class="aaa" onclick="aaa();">本页跳页方式B/a></br>
+    <a href="https://www.163.com" class="aaa">本页跳页方式C/a></br>
+
 	<a href="javascript:;" class="a" onclick="a();">跳转到二级楼</a></br>
 	<a href="javascript:;" class="b" onclick="b();">跳转到举报</a></br>
     <a href="javascript:;" class="c" onclick="c();">退出登录</a></br>
@@ -27,77 +31,86 @@
     <a href="javascript:;" class="f" onclick="f();">不含刷新web页面--四个参数</a></br>
     <a href="javascript:;" class="g" onclick="g();">传统调用web页面--两个参数</a></br>
     <a href="javascript:;" class="h" onclick="h();">传统调用web页面--三个参数</a></br>
-
+    
 
 	<script type="text/javascript">
-	function a(){
-		var data = {};
-	 	data.type = "second";
-        data.param= {"id":"home2"};
+        
+        function aa(){
+            window.location.href = "https://www.baidu.com";
+        }
+    
+        function aaa(){
+            window.location.hash = "http://www.ifeng.com/";
+        }
+    
+        function a(){
+            var data = {};
+            data.type = "second";
+            data.param= {"id":"home2"};
 
-	 	connectWebViewJavascriptBridge(function(bridge){
-	 		bridge.gotoLocalPage(JSON.stringify(data));
-	 	});
-	}
-	function b(){
-        var data = {};
-        data.type = "sendAdvice";
-        data.param= {};
+            connectWebViewJavascriptBridge(function(bridge){
+                bridge.gotoLocalPage(JSON.stringify(data));
+            });
+        }
+        function b(){
+            var data = {};
+            data.type = "sendAdvice";
+            data.param= {};
+            
+            connectWebViewJavascriptBridge(function(bridge){
+                bridge.gotoLocalPage(JSON.stringify(data));
+            });
+        }
         
-        connectWebViewJavascriptBridge(function(bridge){
-            bridge.gotoLocalPage(JSON.stringify(data));
-        });
-	}
-    
-    function c(){
-        var data = {};
-        data.type = "logout";
-        data.param= {};
+        function c(){
+            var data = {};
+            data.type = "logout";
+            data.param= {};
+            
+            connectWebViewJavascriptBridge(function(bridge){
+               bridge.gotoLocalPage(JSON.stringify(data));
+            });
+        }
         
-        connectWebViewJavascriptBridge(function(bridge){
-           bridge.gotoLocalPage(JSON.stringify(data));
-        });
-    }
-    
-    function d(){
-        var data = {};
-        data.type = "register";
-        data.param= {};
+        function d(){
+            var data = {};
+            data.type = "register";
+            data.param= {};
+            
+            connectWebViewJavascriptBridge(function(bridge){
+               bridge.gotoLocalPage(JSON.stringify(data));
+            });
+        }
         
-        connectWebViewJavascriptBridge(function(bridge){
-           bridge.gotoLocalPage(JSON.stringify(data));
-        });
-    }
-    
-    function e(){
-        var data = {};
-        data.params= {"isHasRefresh":true};
+        function e(){
+            var data = {};
+            data.param= {"isHasRefresh":true};
+            
+            connectWebViewJavascriptBridge(function(bridge){
+                                           bridge.createWebPage("百度搜索","https://www.baidu.com","",JSON.stringify(data));
+                                           });
+        }
         
-        connectWebViewJavascriptBridge(function(bridge){
-                                       bridge.createWebPage("百度搜索","https://www.baidu.com","",JSON.stringify(data));
-                                       });
-    }
-    
-    function f(){
-        var data = {};
-        data.params= {"isHasRefresh":false};
+        function f(){
+            var data = {};
+            data.param= {"isHasRefresh":false};
+            
+            connectWebViewJavascriptBridge(function(bridge){
+                                           bridge.createWebPage("百度搜索","https://www.baidu.com","",JSON.stringify(data));
+                                           });
+        }
         
-        connectWebViewJavascriptBridge(function(bridge){
-                                       bridge.createWebPage("百度搜索","https://www.baidu.com","",JSON.stringify(data));
-                                       });
-    }
-    
-    function g(){
-        connectWebViewJavascriptBridge(function(bridge){
-                                       bridge.createWebPage("百度搜索","https://www.baidu.com");
-                                       });
-    }
-    
-    function h(){
-        connectWebViewJavascriptBridge(function(bridge){
-                                       bridge.createWebPage("百度搜索","https://www.baidu.com","homeFlg");
-                                       });
-    }
+        function g(){
+            connectWebViewJavascriptBridge(function(bridge){
+                                           bridge.createWebPage("百度搜索","https://www.baidu.com");
+                                           });
+        }
+        
+        function h(){
+            connectWebViewJavascriptBridge(function(bridge){
+                                           bridge.createWebPage("百度搜索","https://www.baidu.com","homeFlg");
+                                           });
+        }
     
 	</script>
 </body>
