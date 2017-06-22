@@ -31,7 +31,9 @@
     <a href="javascript:;" class="f" onclick="f();">不含刷新web页面--四个参数</a></br>
     <a href="javascript:;" class="g" onclick="g();">传统调用web页面--两个参数</a></br>
     <a href="javascript:;" class="h" onclick="h();">传统调用web页面--三个参数</a></br>
-    
+    <a href="javascript:;" class="night" onclick="night(true);">夜间模式</a></br>
+    <a href="javascript:;" class="day" onclick="night(false);">日间模式</a></br>
+
 
 	<script type="text/javascript">
         
@@ -111,6 +113,12 @@
                                            bridge.createWebPage("百度搜索","https://www.baidu.com","homeFlg");
                                            });
         }
+	
+	function night(nightModel) {
+       	    connectWebViewJavascriptBridge(function(bridge){
+                                       bridge.isNightMode(nightModel);
+                                       });
+    	}
     
 	</script>
 </body>
