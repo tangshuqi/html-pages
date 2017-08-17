@@ -132,12 +132,12 @@
 		
 	function hideTitleBar_A() {
 	connectWebViewJavascriptBridge(function(bridge){
-                                       bridge.hideTitleBar(false);
+                                       bridge.hideTitleBar();
                                        });
 	}
 	function hideTitleBar_B() {
 	connectWebViewJavascriptBridge(function(bridge){
-                                       bridge.hideTitleBar(false);
+                                       bridge.hideTitleBar(true);
                                        });
 	}		
 	function hideTitleBar_C() {
