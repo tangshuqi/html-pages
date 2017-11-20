@@ -40,6 +40,7 @@
     <a href="javascript:;" class="hideTitleBar" onclick="hideTitleBar_C();">hideTitleBar(false)</a></br>
     <a href="javascript:;" class="calendarEvent" onclick="calendarEvent('add');">日历事件添加</a></br>
     <a href="javascript:;" class="calendarEvent" onclick="calendarEvent('delete');">日历事件删除</a></br>
+    <a href="javascript:;" class="calendarEvent" onclick="getWxData();">获取微信数据</a></br>
 
 
 	<script type="text/javascript">
@@ -167,6 +168,13 @@
                                        });
 	}
 	
+	function getWxData() {
+		var wxData = {};
+	connectWebViewJavascriptBridge(function(bridge){
+                            		wxData = bridge.getWxData();
+                                       });
+		alert(JSON.stringify(wxData));
+	}
     
 // 	window.onload = function(){
 // 		night()
