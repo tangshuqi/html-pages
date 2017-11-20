@@ -41,6 +41,7 @@
     <a href="javascript:;" class="calendarEvent" onclick="calendarEvent('add');">日历事件添加</a></br>
     <a href="javascript:;" class="calendarEvent" onclick="calendarEvent('delete');">日历事件删除</a></br>
     <a href="javascript:;" class="calendarEvent" onclick="getWxData();">获取微信数据</a></br>
+    <a href="javascript:;" class="pushToWXLogin" onclick="pushToWXLogin();">退出并微信登录</a></br>
 
 
 	<script type="text/javascript">
@@ -174,6 +175,12 @@
                             		wxData = bridge.getWxData();
                                        });
 		alert(JSON.stringify(wxData));
+	}
+		
+	function pushToWXLogin() {
+	connectWebViewJavascriptBridge(function(bridge){
+                            		bridge.pushToWXLogin();
+                                       });
 	}
     
 // 	window.onload = function(){
