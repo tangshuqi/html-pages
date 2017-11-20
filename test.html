@@ -159,7 +159,9 @@
 	data.notes = "乘风破浪会有时，直挂云帆济沧海！";
 	if(event == 'delete') {
 		data.eventType = "deleteEvent";
-	   }
+	} else {
+	   	data.eventType = "addEvent";
+	}
 	connectWebViewJavascriptBridge(function(bridge){
                             		bridge.calendarEvent(JSON.stringify(data));
                                        });
