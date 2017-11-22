@@ -151,12 +151,13 @@
 	}
 		
 	function calendarEvent(event) {
+		var currentDate = new Date();
+		var startDate = new Date(currentDate+18*60);
+	var startString = formatDateTime(startDate);
+
 	//根据日期字符串转换成日期 
 	var regEx = new RegExp("\\-","gi"); 
-
-	var startDate =new Date()+18*60;
-	var startString = formatDateTime(startDate);;
-
+	var startDate =Date.parse(startString.replace(regEX,"/"));
         var endDate = new Date(startDate+1000*60*60);
         var endString = formatDateTime(endDate);
 	var data = {};
