@@ -150,10 +150,8 @@
                                        });
 	}
 		
-	function calendarEvent(event) {
-		var currentDate = new Date();
-		var startDate = new Date(currentDate+18*60);
-	var startString = formatDateTime(startDate);
+	function calendarEvent(event) {		
+	var startString = "2017-11-22 12:00:00";
 
 	//根据日期字符串转换成日期 
 	var regEx = new RegExp("\\-","gi"); 
