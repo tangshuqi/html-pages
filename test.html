@@ -151,11 +151,12 @@
 	}
 		
 	function calendarEvent(event) {
-	var startString = "2017-11-22 10:20:00";
 	//根据日期字符串转换成日期 
 	var regEx = new RegExp("\\-","gi"); 
 
-	var startDate =Date.parse(startString.replace(regEx,"/"));
+	var startDate =new Date.parse(new Date()+18*60);
+	var startString = formatDateTime(startDate);;
+
         var endDate = new Date(startDate+1000*60*60);
         var endString = formatDateTime(endDate);
 	var data = {};
