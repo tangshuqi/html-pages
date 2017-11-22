@@ -151,12 +151,19 @@
 	}
 		
 	function calendarEvent(event) {
+	var startString = "2017-11-30 18:00:00";
+	//根据日期字符串转换成日期 
+	var regEx = new RegExp("\\-","gi"); 
+
+	var startDate =Date.parse(startString.replace(regEx,"/"));
+        var endDate = new Date(startDate+1000*60*60);
+        var endString = formatDateTime(endDate);
 	var data = {};
         data.title = "以梦为马-不负韶华";
         data.location = "浙江省杭州市西湖区文三路90号东部软件园";
 	data.allDay = false;
-	data.startDate = "2017-11-30 18:00:00";
-	data.endDate = "2017-11-30 20:00:00";
+	data.startDate = startString;
+	data.endDate = endString;
 	data.alarms = "15,5";
 	data.notes = "乘风破浪会有时，直挂云帆济沧海！";
 	if(event == 'delete') {
@@ -168,6 +175,22 @@
                             		bridge.calendarEvent(JSON.stringify(data));
                                        });
 	}
+		
+	 function formatDateTime(inputTime) {
+            var date = new Date(inputTime);
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            m = m < 10 ? ('0' + m) : m;
+            var d = date.getDate();
+            d = d < 10 ? ('0' + d) : d;
+            var h = date.getHours();
+            h = h < 10 ? ('0' + h) : h;
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            minute = minute < 10 ? ('0' + minute) : minute;
+            second = second < 10 ? ('0' + second) : second;
+            return y + '-' + m + '-' + d+' '+h+':'+minute+':'+second;
+        };
 	
 	function getWxData() {
 		var wxData = {};
