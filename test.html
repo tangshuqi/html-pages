@@ -155,7 +155,7 @@
 
 	//根据日期字符串转换成日期 
 	var regEx = new RegExp("\\-","gi"); 
-	var startDate =Date.parse(startString.replace(regEX,"/"));
+	var startDate =Date.parse(startString.replace(regEx,"/"));
         var endDate = new Date(startDate+1000*60*60);
         var endString = formatDateTime(endDate);
 	var data = {};
