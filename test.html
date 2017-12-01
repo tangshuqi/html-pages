@@ -5,7 +5,9 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>1111</title>
-	<script type="text/javascript">
+</head>
+<body>
+    <script type="text/javascript">
 	    function connectWebViewJavascriptBridge(callback) {
 	        if (window.webOpenJSBridge) {
 	            callback(window.webOpenJSBridge)
@@ -17,9 +19,7 @@
 	    }
 
 	</script>
-</head>
-<body>
-    
+	
     <a href="https://fight1990.github.io/html-pages/test.html" class="aaaa">页内跳转</a></br>
     <a href="javascript:;" class="aa" onclick="aa();">本页跳页方式A</a></br>
     <a href="javascript:;" class="aaa" onclick="aaa();">本页跳页方式B</a></br>
@@ -211,7 +211,7 @@
 	connectWebViewJavascriptBridge(function(bridge){
                             		wxData = bridge.getWxData();
                                        });
-		alert(JSON.stringify(wxData));
+		alert("1111"+JSON.stringify(wxData));
 	}
 	</script>
 </body>
