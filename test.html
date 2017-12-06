@@ -95,7 +95,7 @@
         
         function e(){
             var data = {};
-            data.param= {"isHasRefresh":true};
+            data.params= {"isHasRefresh":true};
             
             connectWebViewJavascriptBridge(function(bridge){
                                            bridge.createWebPage("百度搜索","https://www.baidu.com","",JSON.stringify(data));
@@ -104,7 +104,7 @@
         
         function f(){
             var data = {};
-            data.param= {"isHasRefresh":false};
+            data.params= {"isHasRefresh":false};
             
             connectWebViewJavascriptBridge(function(bridge){
                                            bridge.createWebPage("百度搜索","https://www.baidu.com","",JSON.stringify(data));
